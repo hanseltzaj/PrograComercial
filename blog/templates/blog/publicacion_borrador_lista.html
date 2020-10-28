@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+              <div class="content container">
+                <div class="row">
+                  <div class="col-md-8">
+                    {% for publicacion in publicaciones %}
+                    <div class="post">
+                      <h2><a href="{% url 'publicacion_detalle' pk=publicacion.pk %}">{{ publicacion.titulo }}</a></h2>
+                      <p>{{ publicacion.texto|truncatechars:200 }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+{% endblock %}
